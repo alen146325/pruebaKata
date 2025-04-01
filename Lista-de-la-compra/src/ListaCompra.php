@@ -12,10 +12,15 @@ class ListaCompra
 
         if ($partes[0] === "añadir") {
             $nombre = strtolower($partes[1]);
-            $cantidad = 1;
-            $this->productos[$nombre] = $cantidad;
+            $cantidad = isset($partes[2]) ? (int)$partes[2] : 1;
 
-            return "$nombre x$cantidad";
+            if (isset($this->productos[$nombre])) {
+                $this->productos[$nombre] += $cantidad;
+            } else {
+                $this->productos[$nombre] = $cantidad;
+            }
+
+            return "$nombre x" . $this->productos[$nombre];
         }
 
         return "";
