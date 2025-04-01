@@ -67,5 +67,16 @@ class ListaCompraTest extends TestCase
         $this->assertEquals("pan x3", $resultado);
     }
 
+    /**
+     * @test
+     */
+    public function dadoInstruccionVaciarEliminarTodosLosProductos() {
+        $lista = new ListaCompra();
+        $lista->interpretarInstruccion("añadir pan 2");
+        $lista->interpretarInstruccion("añadir leche 1");
+        $resultado = $lista->interpretarInstruccion("vaciar");
+        $this->assertEquals("", $resultado); // La lista debe quedar vacía
+    }
+
 
 }

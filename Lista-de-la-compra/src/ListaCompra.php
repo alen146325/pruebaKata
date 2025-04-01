@@ -23,6 +23,11 @@ class ListaCompra
             ksort($this->productos, SORT_STRING | SORT_FLAG_CASE);
         }
 
+        else if ($partes[0] === "vaciar") {
+            $this->productos = []; // Se eliminan todos los productos
+            return ""; // Lista vacía devuelve una cadena vacía
+        }
+
         return $this->formatearLista();
     }
 
