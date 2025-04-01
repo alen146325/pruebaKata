@@ -28,6 +28,17 @@ class ListaCompra
             return ""; // Lista vacía devuelve una cadena vacía
         }
 
+        else if ($partes[0] === "eliminar") {
+            $nombre = strtolower($partes[1]);
+
+            if (isset($this->productos[$nombre])) {
+                unset($this->productos[$nombre]); // Elimina el producto
+                return $this->formatearLista();
+            } else {
+                return "El producto seleccionado no existe"; // Mensaje de error
+            }
+        }
+
         return $this->formatearLista();
     }
 

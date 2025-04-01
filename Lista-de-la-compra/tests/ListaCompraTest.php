@@ -78,5 +78,24 @@ class ListaCompraTest extends TestCase
         $this->assertEquals("", $resultado); // La lista debe quedar vacía
     }
 
+    /**
+     * @test
+     */
+    public function dadoInstruccionEliminarProductoExistenteRemoverDeLaLista() {
+        $lista = new ListaCompra();
+        $lista->interpretarInstruccion("añadir pan 2");
+        $lista->interpretarInstruccion("añadir leche 1");
+        $resultado = $lista->interpretarInstruccion("eliminar pan");
+        $this->assertEquals("leche x1", $resultado); // Solo debe quedar "leche x1"
+    }
+
+    /**
+     * @test
+     */
+    public function dadoInstruccionEliminarProductoInexistenteDevolverMensajeError() {
+        $lista = new ListaCompra();
+        $resultado = $lista->interpretarInstruccion("eliminar arroz");
+        $this->assertEquals("El producto seleccionado no existe", $resultado); // Producto no existe
+    }
 
 }
