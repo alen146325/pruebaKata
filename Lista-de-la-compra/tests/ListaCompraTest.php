@@ -10,7 +10,7 @@ class ListaCompraTest extends TestCase
     /**
      * @test
      */
-    public function testAñadirProducto() {
+    public function dadoOpcionAnadirSinCantidadDevolverUno() {
         $lista = new ListaCompra();
         $resultado = $lista->interpretarInstruccion("añadir pan");
         $this->assertEquals("pan x1", $resultado);
