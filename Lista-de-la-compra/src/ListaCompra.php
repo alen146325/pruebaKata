@@ -28,7 +28,7 @@ class ListaCompra
 
     private function formatearLista(): string {
         if (empty($this->productos)) {
-            return ""; // Si no hay productos, devolvemos una cadena vacía
+            return "";
         }
 
         $resultados = [];

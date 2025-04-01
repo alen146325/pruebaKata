@@ -56,5 +56,16 @@ class ListaCompraTest extends TestCase
         $this->assertEquals("leche x1, manzana x1, pan x1", $resultado);
     }
 
+    /**
+     * @test
+     */
+    public function dadoProductosConMayusculaOMinusculaDanSumaCorrecta() {
+        $lista = new ListaCompra();
+        $lista->interpretarInstruccion("añadir Pan");
+        $lista->interpretarInstruccion("añadir pan 2");
+        $resultado = $lista->interpretarInstruccion("");
+        $this->assertEquals("pan x3", $resultado);
+    }
+
 
 }
