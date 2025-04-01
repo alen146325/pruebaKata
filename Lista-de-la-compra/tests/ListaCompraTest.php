@@ -34,4 +34,14 @@ class ListaCompraTest extends TestCase
         $resultado = $lista->interpretarInstruccion("añadir pan 3");
         $this->assertEquals("pan x5", $resultado);
     }
+
+    /**
+     * @test
+     */
+    public function dadoListaNuevaDevolverCadenaVacia() {
+        $lista = new ListaCompra();
+        $resultado = $lista->interpretarInstruccion("");
+        $this->assertEquals("", $resultado);
+    }
+
 }
