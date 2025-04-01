@@ -24,4 +24,14 @@ class ListaCompraTest extends TestCase
         $resultado = $lista->interpretarInstruccion("añadir pan 2");
         $this->assertEquals("pan x2", $resultado);
     }
+
+    /**
+     * @test
+     */
+    public function dadoOpcionAnadirSumarCantidadCorrecta() {
+        $lista = new ListaCompra();
+        $lista->interpretarInstruccion("añadir pan 2");
+        $resultado = $lista->interpretarInstruccion("añadir pan 3");
+        $this->assertEquals("pan x5", $resultado);
+    }
 }
