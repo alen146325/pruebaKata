@@ -44,4 +44,17 @@ class ListaCompraTest extends TestCase
         $this->assertEquals("", $resultado);
     }
 
+    /**
+     * @test
+     */
+    public function dadoMultiplesProductosDevolverOrdenAlfabetico() {
+        $lista = new ListaCompra();
+        $lista->interpretarInstruccion("añadir Pan");
+        $lista->interpretarInstruccion("añadir manzana");
+        $lista->interpretarInstruccion("añadir leche");
+        $resultado = $lista->interpretarInstruccion("");
+        $this->assertEquals("leche x1, manzana x1, pan x1", $resultado);
+    }
+
+
 }

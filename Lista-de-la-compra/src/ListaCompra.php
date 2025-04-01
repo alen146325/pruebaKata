@@ -20,9 +20,21 @@ class ListaCompra
                 $this->productos[$nombre] = $cantidad;
             }
 
-            return "$nombre x" . $this->productos[$nombre];
+            ksort($this->productos, SORT_STRING | SORT_FLAG_CASE);
         }
 
-        return "";
+        return $this->formatearLista();
+    }
+
+    private function formatearLista(): string {
+        if (empty($this->productos)) {
+            return ""; // Si no hay productos, devolvemos una cadena vacía
+        }
+
+        $resultados = [];
+        foreach ($this->productos as $nombre => $cantidad) {
+            $resultados[] = "$nombre x$cantidad";
+        }
+        return implode(", ", $resultados);
     }
 }
